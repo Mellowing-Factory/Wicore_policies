@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withforce 개인정보처리방침</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .date {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav {
+            background: #f8f9fa;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .nav-list li a {
+            color: #495057;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-list li a:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 250, 0.9) 100%);
+            border-left: 4px solid #007bff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .section h3 {
+            color: #495057;
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.2);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(168, 237, 234, 0.3);
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .scroll-top.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Withforce 개인정보처리방침</h1>
+            <div class="date">최종 업데이트: 2025년 8월 14일</div>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="#info-collection">수집하는 정보</a></li>
+                <li><a href="#info-usage">정보 사용 방식</a></li>
+                <li><a href="#info-sharing">정보 공유 방식</a></li>
+                <li><a href="#user-rights">사용자 권리</a></li>
+                <li><a href="#data-retention">데이터 보관</a></li>
+                <li><a href="#third-party">제3자 서비스</a></li>
+                <li><a href="#children">아동 정책</a></li>
+                <li><a href="#security">정보 보안</a></li>
+                <li><a href="#international">해외 운영</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div class="intro">
+                <p>Withforce에서는 건강한 관계의 관건은 투명성이라 믿고 있으며, 건강을 최우선으로 생각합니다. 중요한 정보를 믿고 맡겨 주셔서 감사드립니다. 이에 따라 Withforce에서는 귀하의 정보를 투명하게 사용하고자 합니다.</p>
+                <p>본 개인정보처리방침에서는 Withforce의 기기, 애플리케이션, 소프트웨어, 웹사이트, API, 제품, 서비스('서비스')에 관한 개인 정보 보호 관행을 설명합니다.</p>
+            </div>
+
+            <section id="info-collection" class="section">
+                <h2>Withforce에서 수집하는 정보</h2>
+                <p>Withforce의 '서비스'를 이용할 때 Withforce은 다음과 같은 유형의 정보를 수집하며, 이 중 일부는 워싱턴주 개인 건강 정보 보호법 및 네바다 상원 법안 370과 같은 특정 미국 주 법률에 정의된 '소비자 건강 데이터'로 간주될 수 있습니다.</p>
+
+                <h3>귀하가 Withforce에 제공하는 정보</h3>
+                
+                <h4>계정 정보</h4>
+                <p>'서비스'에서 계정을 만들려면 이름, 이메일 주소, 비밀번호, 생년월일, 성별, 키, 체중, 휴대전화 번호(경우에 따라)와 같은 일부 정보가 필요합니다. Withforce 계정을 만들 때 이러한 정보만 제공하면 됩니다. 또는 프로필 사진, 약력, 국가 정보, 커뮤니티 사용자 이름 등 다른 유형의 정보도 제공할 수도 있습니다.</p>
+
+                <h4>추가 정보</h4>
+                <p>사용자 경험을 개선하거나 서비스의 특정 기능을 사용 설정하기 위해 체중, 수면, 물 또는 여성 건강 모니터링 관련 기록, 알람, 토론 게시판의 메시지 또는 '서비스'에서 친구와 주고받은 메시지 등의 추가 정보를 제공할 수도 있습니다.</p>
+
+                <h3>Withforce 서비스 이용 시 Withforce가 수신하는 정보</h3>
+                
+                <h4>기기 정보</h4>
+                <p>기기는 걸음 수, 이동 거리, 칼로리 소모량, 체중, 호흡수, 활동적 시간(분), 위치 등 다양한 건강 수치를 추정하기 위해 데이터를 수집합니다.</p>
+
+                <h4>위치정보</h4>
+                <p>'서비스'에는 GPS 신호, 기기 센서, Wi-Fi 액세스 포인트, 휴대폰 기지국 ID 등 정확한 위치정보 데이터를 사용하는 기능이 포함됩니다.</p>
+
+                <h4>사용 정보</h4>
+                <p>귀하가 '서비스'에 액세스하거나 '서비스'를 이용할 때 Withforce은 특정 사용 정보 또는 네트워크 활동 정보를 수신합니다.</p>
+            </section>
+
+            <section id="info-usage" class="section">
+                <h2>Withforce에서 정보를 사용하는 방식</h2>
+                <p>Withforce은 사용자의 동의 하에 또는 사용자가 요청한 '서비스'를 제공하기 위해 수집한 정보를 다음과 같은 목적으로 사용합니다.</p>
+
+                <h3>서비스 제공 및 유지</h3>
+                <p>Withforce은 수집하는 정보를 사용하여 귀하에게 '서비스'를 제공하고 귀하와 체결한 서비스 약관 계약을 준수할 수 있습니다.</p>
+
+                <h3>서비스 개선, 맞춤설정, 개발</h3>
+                <p>Withforce은 수집한 정보를 이용하여 '서비스'를 개선하고 맞춤설정하며, 새로운 '서비스'를 개발합니다.</p>
+
+                <h3>귀하와의 커뮤니케이션</h3>
+                <p>Withforce은 필요한 경우 귀하의 정보를 사용하여 귀하에게 '서비스' 알림을 보내고 귀하의 문의에 응답합니다.</p>
+
+                <h3>안전 및 보안 강화</h3>
+                <p>Withforce은 수집하는 정보를 사용하여 '서비스', 사용자, 다른 당사자의 안전과 보안을 강화합니다.</p>
+            </section>
+
+            <section id="info-sharing" class="section">
+                <h2>정보가 공유되는 방식</h2>
+                <div class="highlight-box">
+                    <strong>중요:</strong> Withforce은 사용자의 개인 정보를 절대 판매하지 않습니다.
+                </div>
+                
+                <p>Withforce은 아래에 명시된 제한적인 상황을 제외하고는 귀하의 개인 정보를 공유하지 않습니다.</p>
+
+                <h3>귀하가 동의하거나 공유를 지시하는 경우</h3>
+                <p>포럼, 7일 리더보드, 기타 소셜 도구와 같은 커뮤니티 기능을 사용하는 등의 경우 귀하는 다른 사용자에게 귀하의 정보를 공개하도록 Withforce에 지시할 수 있습니다.</p>
+
+                <h3>외부 처리</h3>
+                <p>Withforce은 Withforce의 지침을 기반으로, 본 정책 및 기타 적절한 기밀 유지 및 보안 조치를 준수하면서 Withforce을 대신하여 정보를 처리하는 계열사, 서비스 제공업체, 기타 파트너에 정보를 전송합니다.</p>
+
+                <h3>법적 사유 또는 피해 방지</h3>
+                <p>Withforce은 법규, 규정, 법적 절차 또는 정부 요청을 준수하거나, 법적 권리를 주장하거나 법적 소송에 대응하거나, 불법 행위, 사기, 악용, 약관 위반을 방지, 감지 또는 조사하기 위해 귀하에 관한 정보를 보관하거나 공개할 수 있습니다.</p>
+            </section>
+
+            <section id="user-rights" class="section">
+                <h2>개인 정보에 액세스하고 제어하는 귀하의 권리</h2>
+                <p>Withforce은 거주 지역과 관계없이 아래에 설명된 대로, 귀하가 개인 정보에 액세스하고 이를 관리할 수 있도록 <strong>계정 설정</strong> 및 도구를 제공합니다.</p>
+
+                <h3>데이터 액세스 및 내보내기</h3>
+                <p>귀하는 계정에 로그인하여 일일 운동 및 활동 통계가 포함된 대시보드 등 대부분의 개인 정보에 액세스할 수 있습니다.</p>
+
+                <h3>데이터 수정 및 삭제</h3>
+                <p>계정에 로그인하고 계정 설정을 사용하여 개인 정보를 변경하고 삭제할 수 있습니다.</p>
+
+                <div class="highlight-box">
+                    <p><strong>계정 삭제 시 유의사항:</strong> 계정을 삭제하는 경우 대부분의 정보는 30일 이내에 삭제되지만, Withforce 기기에서 기록한 데이터와 Withforce 백업 시스템에 저장된 기타 데이터와 같은 모든 정보가 삭제되기까지는 최대 90일이 걸릴 수 있습니다.</p>
+                </div>
+
+                <h3>데이터 사용에 대한 이의 제기</h3>
+                <p>Withforce은 데이터 사용을 관리할 수 있는 계정 설정 및 도구를 제공합니다.</p>
+            </section>
+
+            <section id="data-retention" class="section">
+                <h2>데이터 보관</h2>
+                <p>Withforce은 이름, 이메일 주소, 비밀번호와 같은 귀하의 계정 정보를 계정이 존재하는 동안 보관합니다. 이는 계정을 운영하는 데 이러한 정보가 필요하기 때문입니다.</p>
+            </section>
+
+            <section id="third-party" class="section">
+                <h2>제3자 제공 분석 및 광고 서비스</h2>
+                <p>Withforce은 분석 및 광고 서비스를 제공하는 파트너와 협력하고 있습니다. 여기에는 사용자가 '서비스'와 어떻게 상호작용하는지 파악하도록 지원하고, Withforce을 대신해 인터넷 전반에 광고를 게재하고, 이러한 광고의 실적을 측정하는 파트너가 포함됩니다.</p>
+            </section>
+
+            <section id="children" class="section">
+                <h2>아동 관련 정책</h2>
+                <p>Withforce은 아동의 개인 정보를 보호하기 위해 추가 조치를 취하는 것이 중요하다는 점을 인식하고 있습니다.</p>
+                <p>만 13세 또는 거주하는 관할권에서 적용되는 최소 연령 미만인 사용자는 관련 법규에 따라 부모의 동의를 받지 않는 한 계정을 만들 수 없습니다.</p>
+            </section>
+
+            <section id="security" class="section">
+                <h2>정보 보안</h2>
+                <p>Withforce은 귀하의 데이터를 안전하게 보호하기 위해 최선을 다하고 있습니다. 아울러 기술적, 관리적, 물리적 제어 장치를 함께 사용하여 귀하의 데이터 보안을 유지합니다. 여기에는 전송 계층 보안('TLS')을 사용하여 많은 '서비스'를 암호화하는 작업도 포함됩니다.</p>
+            </section>
+
+            <section id="international" class="section">
+                <h2>해외 운영 및 데이터 전송</h2>
+                <p>Withforce은 전 세계에서 사업을 영위하며, 본 정책에 설명된 목적을 위해 미국 및 기타 국가에 정보를 전송합니다.</p>
+                
+                <h3>법적 근거</h3>
+                <ul>
+                    <li>적정성 결정</li>
+                    <li>EU-미국 및 스위스-미국 데이터 개인 정보 보호 프레임워크</li>
+                    <li>표준 계약 조항</li>
+                </ul>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>본 정책의 변경사항</h2>
+                <p>Withforce은 본 정책에 중대한 변경사항이 있으면 사전에 귀하에게 통보하여, 귀하가 개정된 정책을 검토한 후 '서비스'를 계속 이용할 것인지 여부를 결정할 기회를 제공합니다.</p>
+            </section>
+
+            <div class="contact-info">
+                <h3>회사 소개 및 연락처 정보</h3>
+                <p>본 정책에 관한 질문이 있거나 귀하의 개인 정보 보호 권리 행사에 도움이 필요하면 Withforce의 데이터 보호 담당자에게 문의하시기 바랍니다.</p>
+                <p><strong>이메일:</strong> contact@withforce.co.kr</p>
+                <div style="margin-top: 1.5rem;">
+                    <p><strong>Withforce Inc.</strong></p>
+                    <p>#701 Poilcommunity Center, 82 Anyangpangyo-ro,</p>
+                    <p>Uiwang-si, Gyeonggi-do</p>
+                    <p>16014 Korea</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Withforce Inc. 모든 권리 보유.</p>
+        </footer>
+    </div>
+
+    <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Show/hide scroll to top button
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

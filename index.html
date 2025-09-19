@@ -17,6 +17,7 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            font-size: 16px;
         }
 
         .container {
@@ -30,7 +31,7 @@
         .header {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -53,14 +54,15 @@
         }
 
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
             position: relative;
             z-index: 1;
+            word-break: keep-all;
         }
 
         .header .date {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             opacity: 0.9;
             position: relative;
             z-index: 1;
@@ -68,7 +70,7 @@
 
         .nav {
             background: #f8f9fa;
-            padding: 1rem 2rem;
+            padding: 0.5rem;
             border-bottom: 1px solid #e9ecef;
             position: sticky;
             top: 0;
@@ -76,146 +78,179 @@
             backdrop-filter: blur(10px);
         }
 
+        .nav-toggle {
+            display: none;
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
         .nav-list {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.5rem;
             justify-content: center;
+            max-height: none;
+            overflow: visible;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list.collapsed {
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .nav-list li {
+            flex: 0 1 auto;
+            min-width: fit-content;
         }
 
         .nav-list li a {
             color: #495057;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: rgba(255, 255, 255, 0.7);
+            display: block;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .nav-list li a:hover {
             background: #007bff;
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0, 123, 255, 0.3);
         }
 
         .content {
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .intro {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
         }
 
         .intro p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
         }
 
         .section {
-            margin-bottom: 3rem;
-            padding: 1.5rem;
-            border-radius: 10px;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 250, 0.9) 100%);
             border-left: 4px solid #007bff;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .section h2 {
             color: #2c3e50;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #e9ecef;
+            word-break: keep-all;
+            line-height: 1.4;
         }
 
         .section h3 {
             color: #495057;
-            margin: 1.5rem 0 1rem 0;
-            font-size: 1.2rem;
+            margin: 1.25rem 0 0.75rem 0;
+            font-size: 1.1rem;
+            word-break: keep-all;
+            line-height: 1.4;
+        }
+
+        .section h4 {
+            color: #6c757d;
+            margin: 1rem 0 0.5rem 0;
+            font-size: 1rem;
+            word-break: keep-all;
         }
 
         .section p {
             margin-bottom: 1rem;
             text-align: justify;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .section ul {
             margin: 1rem 0;
-            padding-left: 2rem;
+            padding-left: 1.5rem;
         }
 
         .section li {
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         .highlight-box {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             border: 1px solid #ffc107;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.2);
+        }
+
+        .highlight-box strong {
+            color: #856404;
         }
 
         .contact-info {
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-top: 2rem;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(168, 237, 234, 0.3);
+            box-shadow: 0 8px 25px rgba(168, 237, 234, 0.3);
         }
 
         .contact-info h3 {
             color: #2c3e50;
             margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
         .contact-info p {
             margin: 0.5rem 0;
+            font-size: 0.95rem;
         }
 
         .footer {
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 0;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .nav-list {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .content {
-                padding: 1rem;
-            }
-
-            .section {
-                padding: 1rem;
-            }
+            padding: 1.5rem;
+            font-size: 0.9rem;
         }
 
         .scroll-top {
@@ -226,12 +261,13 @@
             color: white;
             border: none;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             cursor: pointer;
             display: none;
             transition: all 0.3s ease;
             z-index: 1000;
+            font-size: 1.2rem;
         }
 
         .scroll-top:hover {
@@ -248,17 +284,179 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .header {
+                padding: 1rem 0.75rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+            }
+
+            .header .date {
+                font-size: 0.85rem;
+            }
+
+            .nav {
+                padding: 0.75rem;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .nav-list li {
+                width: 100%;
+            }
+
+            .nav-list li a {
+                padding: 0.75rem 1rem;
+                border-radius: 5px;
+                font-size: 0.9rem;
+            }
+
+            .content {
+                padding: 0.75rem;
+            }
+
+            .intro {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .intro p {
+                font-size: 0.95rem;
+            }
+
+            .section {
+                padding: 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+                line-height: 1.3;
+            }
+
+            .section h3 {
+                font-size: 1.05rem;
+                margin: 1rem 0 0.5rem 0;
+            }
+
+            .section h4 {
+                font-size: 0.95rem;
+            }
+
+            .section p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                text-align: left;
+            }
+
+            .section li {
+                font-size: 0.9rem;
+            }
+
+            .highlight-box {
+                padding: 0.75rem;
+                margin: 0.75rem 0;
+            }
+
+            .contact-info {
+                padding: 1rem;
+                text-align: left;
+            }
+
+            .contact-info h3 {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+
+            .scroll-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Extra small mobile devices */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .section h2 {
+                font-size: 1.1rem;
+            }
+
+            .section h3 {
+                font-size: 1rem;
+            }
+
+            .section p,
+            .section li {
+                font-size: 0.85rem;
+            }
+
+            .intro p {
+                font-size: 0.9rem;
+            }
+
+            .nav-list li a {
+                font-size: 0.85rem;
+                padding: 0.6rem 0.8rem;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .header {
+                padding: 0.75rem;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .content {
+                padding: 0.5rem;
+            }
+
+            .section {
+                margin-bottom: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="header">
             <h1>Withforce 개인정보처리방침</h1>
-            <div class="date">최종 업데이트: 2025년 8월 14일</div>
+            <div class="date">최종 업데이트: 2025년 8월 15일</div>
         </header>
 
-<!--         <nav class="nav">
-            <ul class="nav-list">
+        <nav class="nav">
+            <button class="nav-toggle" onclick="toggleNav()">메뉴 보기/숨기기</button>
+            <ul class="nav-list collapsed" id="navList">
                 <li><a href="#info-collection">수집하는 정보</a></li>
                 <li><a href="#info-usage">정보 사용 방식</a></li>
                 <li><a href="#info-sharing">정보 공유 방식</a></li>
@@ -270,7 +468,7 @@
                 <li><a href="#international">해외 운영</a></li>
                 <li><a href="#contact">연락처</a></li>
             </ul>
-        </nav> -->
+        </nav>
 
         <main class="content">
             <div class="intro">
@@ -414,59 +612,22 @@
     <button class="scroll-top" onclick="scrollToTop()">↑</button>
 
     <script>
+        // Toggle navigation menu for mobile
+        function toggleNav() {
+            const navList = document.getElementById('navList');
+            navList.classList.toggle('collapsed');
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
+                // Close mobile menu after clicking a link
+                const navList = document.getElementById('navList');
+                if (window.innerWidth <= 768) {
+                    navList.classList.add('collapsed');
+                }
+                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Show/hide scroll to top button
-        const scrollTopBtn = document.querySelector('.scroll-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
-        });
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-    </script>
-</body>
-</html>
